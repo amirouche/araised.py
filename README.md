@@ -24,14 +24,14 @@ which is pulled in automatically as a dependency.
 ## CLI
 
 ```
-raises module.path:callable [module.path:callable ...]
+araised module.path:callable [module.path:callable ...]
 ```
 
 The target is `module.path:callable`, where callable is a bare function name or
 `ClassName.method_name`.
 
 ```
-$ raises myapp.db:connect
+$ araised myapp.db:connect
 myapp.db:connect
   builtins.KeyError        [dict.__getitem__, step 1]
   builtins.ValueError      [explicit raise, step 2]
@@ -44,15 +44,15 @@ call chain (`via`) if it was propagated from a callee.
 Multiple targets can be passed in one invocation:
 
 ```
-$ raises myapp.db:connect myapp.db:disconnect
+$ araised myapp.db:connect myapp.db:disconnect
 ```
 
 ## Programmatic API
 
 ```python
-import raises
+import araised
 
-entries = raises.analyse('myapp.db:connect')
+entries = araised.analyse('myapp.db:connect')
 for e in entries:
     print(e.exception, e.source, e.step, e.via)
 ```
@@ -69,7 +69,7 @@ for e in entries:
 **Optional parameters:**
 
 ```python
-raises.analyse(
+araised.analyse(
     'myapp.db:connect',
     max_depth=3,        # max cross-file hops (default 3, 0 = no cross-file)
     max_union_width=3,  # max union members for dynamic dispatch (default 3)
@@ -78,22 +78,22 @@ raises.analyse(
 
 ## Emacs
 
-Load `raises.el` and call `raises-at-point` with point inside any Python function
+Load `araised.el` and call `araised-at-point` with point inside any Python function
 or method. It infers the target from the current file and def automatically, then
-shows results in a `*raises*` buffer.
+shows results in a `*araised*` buffer.
 
 ```elisp
-(load "/path/to/raises.el")
+(load "/path/to/araised.el")
 
 ;; optional keybinding
 (add-hook 'python-mode-hook
-          (lambda () (local-set-key (kbd "C-c r") #'raises-at-point)))
+          (lambda () (local-set-key (kbd "C-c r") #'araised-at-point)))
 ```
 
-With point inside a function, `M-x raises-at-point` (or `C-c r`) prompts:
+With point inside a function, `M-x araised-at-point` (or `C-c r`) prompts:
 
 ```
-raises target: myapp.db:connect
+araised target: myapp.db:connect
 ```
 
-Edit the target if needed, then press `RET`. Results appear in `*raises*`.
+Edit the target if needed, then press `RET`. Results appear in `*araised*`.

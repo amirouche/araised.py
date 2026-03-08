@@ -13,10 +13,10 @@ check-with-coverage:
 	uv run pytest --cov --cov-report=term-missing
 
 lint:
-	uv run ruff check raises.py
+	uv run ruff check araised.py
 
 fmt:
-	uv run ruff format raises.py
+	uv run ruff format araised.py
 
 typecheck:
-	uv run pyright raises.py
+	uv run pyright araised.py

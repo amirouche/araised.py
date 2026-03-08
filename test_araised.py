@@ -1,4 +1,4 @@
-"""Tests for raises.py — Milestone 1, 2 & 3 validation."""
+"""Tests for araised.py — Milestone 1, 2 & 3 validation."""
 
 import subprocess
 import sys
@@ -6,7 +6,7 @@ import warnings
 
 import pytest
 
-import raises
+import araised as raises
 
 
 def test_explicit_raise_value_error():
@@ -86,7 +86,7 @@ def test_generator_function():
 def test_cli_invocation():
     """Test 9: CLI invocation produces expected output."""
     result = subprocess.run(
-        [sys.executable, 'raises.py', 'foo.test_module:my_func'],
+        [sys.executable, 'araised.py', 'foo.test_module:my_func'],
         capture_output=True, text=True, cwd='.',
     )
     assert result.returncode == 0

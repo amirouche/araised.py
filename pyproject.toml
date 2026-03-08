@@ -17,7 +17,7 @@ dependencies = [
 Homepage = "https://github.com/amirouche/araised.py"
 
 [project.scripts]
-raises = "raises:main"
+araised = "araised:main"
 
 [dependency-groups]
 dev = [
@@ -27,10 +27,10 @@ dev = [
 ]
 
 [tool.pytest.ini_options]
-testpaths = ["test_raises.py"]
+testpaths = ["test_araised.py"]
 
 [tool.coverage.run]
-source = ["raises"]
+source = ["araised"]
 
 [tool.coverage.report]
 fail_under = 80

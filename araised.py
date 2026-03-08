@@ -1,14 +1,14 @@
-"""raises — Static analysis: what exceptions can this function raise?
+"""araised — Static analysis: what exceptions can this function raise?
 
 Usage:
-    raises <target> [<target> ...]
+    araised <target> [<target> ...]
 
     Target notation: module.path:callable
     where callable is a bare function (baz) or class.method (Baz.qux).
 
 Programmatic API:
-    import raises
-    result = raises.analyse('foo.bar:baz')
+    import araised
+    result = araised.analyse('foo.bar:baz')
     # returns list of RaisesEntry namedtuples
 """
 
