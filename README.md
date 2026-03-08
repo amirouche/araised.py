@@ -12,6 +12,12 @@ through same-module and cross-file call chains with cycle detection.
 pip install raises
 ```
 
+To install the latest development version directly from the `dev` branch:
+
+```
+uv tool install git+https://github.com/amirouche/raises.py@dev
+```
+
 Requires [Pyright](https://github.com/microsoft/pyright) (`pip install pyright`),
 which is pulled in automatically as a dependency.
 
